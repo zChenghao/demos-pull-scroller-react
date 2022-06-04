@@ -1,4 +1,4 @@
-# Some demos using pull-scroller-react
+# Some usage demonstrations
 
 [Documentation](https://github.com/zChenghao/pull-scroller-react#readme)
 
