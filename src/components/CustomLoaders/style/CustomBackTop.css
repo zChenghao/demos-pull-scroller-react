@@ -1,0 +1,17 @@
+.custom__backtop {
+  position: absolute;
+  overflow: hidden;
+  position: absolute;
+  bottom: 50px;
+  right: 10px;
+  padding: 5px;
+  background: rgba(255, 255, 255, .5);
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+  color: #eee;
+}
+
+.icon-backtop {
+  width: 36px;
+  height: 36px;
+}

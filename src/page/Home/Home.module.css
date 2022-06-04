@@ -1,0 +1,21 @@
+.home__wrapper {
+  padding: 0 .32rem;
+}
+
+.home-title {
+  padding: .4rem 0 .3rem;
+  line-height: 1.5;
+  font-size: .48rem;
+  font-weight: bold;
+}
+
+.home-link-list{
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.home-link {
+  margin-bottom: .24rem;
+  line-height: 1.4;
+  font-size: 0.32rem;
+}
