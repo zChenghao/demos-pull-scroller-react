@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import PullScroller from 'pull-scroller-react';
 import { DemoList } from '../../components';
 import { ListItem, mockGetListData } from '../../utils/getMockData';
+import { useWindowHeight } from '../../utils/customHooks';
 
 const DemoSimple = () => {
   const [list, setList] = useState<ListItem[]>([]);
+  const { windowHeight } = useWindowHeight();
 
   useEffect(() => {
     if (!list.length) {
@@ -20,7 +22,7 @@ const DemoSimple = () => {
   }, []);
 
   return (
-    <div style={{ height: '100vh' }}>
+    <div style={{ height: windowHeight }}>
       <PullScroller>
         <DemoList list={list} />
       </PullScroller>

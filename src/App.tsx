@@ -3,11 +3,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './page/Home/Home';
 
 const DemoSimple = lazy(() => import('./page/DemoSimple/DemoSimple'));
-const DemoDefaultBackTop = lazy(() => import('./page/DemoDefaultBackTop/DemoDefaultBackTop'));
-const DemoDefaultLoad = lazy(() => import('./page/DemoDefaultLoad/DemoDefaultLoad'));
-const NormalLoadHandler = lazy(() => import('./page/NormalLoadHandler/NormalLoadHandler'));
-const CustomScrollHandler = lazy(() => import('./page/CustomScrollHandler/CustomScrollHandler'));
-const CustomLoadersPage = lazy(() => import('./page/CustomLoadersBackTop/CustomLoadersBackTop'));
+const DemoBackTop = lazy(() => import('./page/BackTopDemo/BackTopDemo'));
+const BackTopShowAlways = lazy(() => import('./page/BackTopShowAlways/BackTopShowAlways'));
+const PullLoadDemo = lazy(() => import('./page/PullLoadDemo/PullLoadDemo'));
+const SyncLoadHandler = lazy(() => import('./page/SyncLoadHandler/SyncLoadHandler'));
+const ScrollHandler = lazy(() => import('./page/ScrollHandler/ScrollHandler'));
 
 function App() {
   return (
@@ -16,11 +16,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/simple" element={<DemoSimple />} />
-          <Route path="/default_backtop" element={<DemoDefaultBackTop />} />
-          <Route path="/default_loading" element={<DemoDefaultLoad />} />
-          <Route path="/normalfunc__load_handler" element={<NormalLoadHandler />} />
-          <Route path="/custom_load_backtop" element={<CustomLoadersPage />} />
-          <Route path="/custom_scroll_handler" element={<CustomScrollHandler />} />
+          <Route path="/backtop" element={<DemoBackTop />} />
+          <Route path="/backtop_showAlways" element={<BackTopShowAlways />} />
+          <Route path="/demo_loading" element={<PullLoadDemo />} />
+          <Route path="/sync_load_handler" element={<SyncLoadHandler />} />
+          <Route path="/scroll_handler" element={<ScrollHandler />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

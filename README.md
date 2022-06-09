@@ -1,20 +1,20 @@
-# Some usage demonstrations
+# Demonstration of use of v1.4.x
 
 [Documentation](https://github.com/zChenghao/pull-scroller-react#readme)
 
 ## The introduction of the demo
 
-+ DemoSimple: simple to use,only scroll.
++ DemoSimple: Simple to use,only scroll.
 
-+ DemoDefaultBackTop: using default back top components.
++ ScrollHandler: Defining scroll event.
 
-+ DemoDefaultLoad: using default refreshes components and default loads components.
++ BackTopDemo: Using back-top.
 
-+ NormalLoadHandler: the load handler is a normal function.
++ BackTopShowAlways: Always show back-top.
 
-+ CustomScrollHandler: custom load components and custom back to top component.
++ PullLoadDemo: Using pull-dwon and pull-up.
 
-+ CustomLoadersPage: custom scroll handler function.
++ SyncLoadHandler: pullDownHandler and pullUpHandler are synchronous functions.
 
 ### `npm install`
 

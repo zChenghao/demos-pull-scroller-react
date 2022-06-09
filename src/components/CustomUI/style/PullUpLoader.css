@@ -1,0 +1,20 @@
+.custom__pullloader {
+  height: 50px;
+  padding: 5px 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.custom__pullloader .icon__loading {
+  transform: translate3d(0, 5px, 0);
+  width: 120px;
+  height: 120px;
+  vertical-align: middle;
+}
+
+.custom__pullloader .loading__text {
+  font-size: 16px;
+  color: #999;
+}

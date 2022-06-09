@@ -10,19 +10,23 @@ export default function Home() {
           <Link to={'/simple'}>Simple to use,only scroll.</Link>
         </li>
         <li className={HomeStyle['home-link']}>
-          <Link to={'/default_backtop'}>Using default back top components.</Link>
+          <Link to={'/scroll_handler'}>Custom scroll handler function.</Link>
         </li>
         <li className={HomeStyle['home-link']}>
-          <Link to={'/default_loading'}>Using default refreshes components and default loads components.</Link>
+          <Link to={'/backtop'}>Using back top.</Link>
         </li>
         <li className={HomeStyle['home-link']}>
-          <Link to={'/normalfunc__load_handler'}>The load handler is a normal function.</Link>
+          <Link to={'/backtop_showAlways'}>Always show back-top.</Link>
         </li>
         <li className={HomeStyle['home-link']}>
-          <Link to={'/custom_load_backtop'}>Using custom load components and custom back to top component.</Link>
+          <Link to={'/demo_loading'}>
+            Using pull-down and pull-up.Load handler is an asynchronous function(async function).
+          </Link>
         </li>
         <li className={HomeStyle['home-link']}>
-          <Link to={'/custom_scroll_handler'}>Custom scroll handler function.</Link>
+          <Link to={'/sync_load_handler'}>
+            The handlers of pull-down and pull-up are synchronous functions(sync function).
+          </Link>
         </li>
       </ul>
     </div>
