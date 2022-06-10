@@ -1,0 +1,32 @@
+.banner__wrapper {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+
+.banner__img {
+  width: 100%;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  transition: all .1s ease;
+}
+
+.fixed--show {
+  z-index: 10;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.fixed--hide {
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100%);
+}

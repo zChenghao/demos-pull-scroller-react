@@ -7,9 +7,12 @@ interface ListData {
 
 const DemoList: React.FC<ListData> = ({ list }) => {
   // console.log('render list');
+  if (!list.length) {
+    return null;
+  }
   return (
     <ul>
-      {list.map((item) => (
+      {list.map((item, index) => (
         <li
           className="item"
           key={item.id}

@@ -1,9 +1,9 @@
-import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo, Fragment } from 'react';
 import PullScroller, { AsyncPullingHandler, BackTopMaker, PullDownMaker, PullUpMaker } from 'pull-scroller-react';
 import { DemoList } from '../../components';
 import { ListItem, mockGetListData } from '../../utils/getMockData';
 import { useWindowHeight } from '../../utils/customHooks';
-import { BackTop, PullDownLoader, PullUpLoader } from '../../components/CustomUI';
+import { BackTop, PageLoading, PullDownLoader, PullUpLoader } from '../../components/CustomUI';
 
 export default function PullLoadDemo() {
   const pageIndex = useRef(0);
@@ -18,15 +18,11 @@ export default function PullLoadDemo() {
     mockGetListData(0, 30, 300)
       .then((res) => {
         setList(res);
-        setEnablePullUp(true);
+        if (res.length) setEnablePullUp(true);
       })
       .catch((err) => {
         console.error(err);
       });
-
-    return () => {
-      setList([]);
-    };
   }, []);
 
   useEffect(() => {
@@ -91,23 +87,29 @@ export default function PullLoadDemo() {
   );
 
   const makeBackTop: BackTopMaker = useCallback(
-    ({ handleScrollToTop, show }) => <BackTop scrollToTop={handleScrollToTop} show={show} />,
+    ({ handleScrollToTop, show }) => <BackTop key="back_top" scrollToTop={handleScrollToTop} show={show} />,
     []
   );
 
   return (
-    <PullScroller
-      height={windowHeight}
-      backTop={makeBackTop}
-      enablePullDown
-      pullDownConfig={pullDownConfig}
-      pullDownHandler={refreshHandler}
-      pullDownLoader={refresher}
-      enablePullUp={enablePullUp}
-      pullUpHandler={loadMoreHandler}
-      pullUpLoader={pullLoader}
-    >
-      <DemoList list={list} />
-    </PullScroller>
+    <Fragment>
+      {list.length ? (
+        <PullScroller
+          height={windowHeight}
+          backTop={makeBackTop}
+          enablePullDown
+          pullDownConfig={pullDownConfig}
+          pullDownHandler={refreshHandler}
+          pullDownLoader={refresher}
+          enablePullUp={enablePullUp}
+          pullUpHandler={loadMoreHandler}
+          pullUpLoader={pullLoader}
+        >
+          <DemoList list={list} />
+        </PullScroller>
+      ) : (
+        <PageLoading />
+      )}
+    </Fragment>
   );
 }

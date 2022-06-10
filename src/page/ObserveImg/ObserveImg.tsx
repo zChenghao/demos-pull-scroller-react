@@ -1,11 +1,12 @@
-import { useState, useEffect, useCallback } from 'react';
 import PullScroller from 'pull-scroller-react';
+import { useEffect, useState } from 'react';
 import { DemoList } from '../../components';
-import { BackTop, PageLoading } from '../../components/CustomUI';
-import { mockGetListData, ListItem } from '../../utils/getMockData';
+import { PageLoading } from '../../components/CustomUI';
 import { useWindowHeight } from '../../utils/customHooks';
+import { ListItem, mockGetListData } from '../../utils/getMockData';
+import style from './ObserveImg.module.css';
 
-export default function BackTopDemo() {
+export default function ObserveImg() {
   const [list, setList] = useState<ListItem[]>([]);
   const { windowHeight } = useWindowHeight();
 
@@ -19,15 +20,11 @@ export default function BackTopDemo() {
       });
   }, []);
 
-  const BackTopMaker = useCallback(
-    ({ handleScrollToTop, show }) => <BackTop key="back_top" scrollToTop={handleScrollToTop} show={show} />,
-    []
-  );
-
   return (
     <>
       {list.length ? (
-        <PullScroller height={windowHeight} backTop={BackTopMaker}>
+        <PullScroller height={windowHeight} observeImg={true}>
+          <img className={style.banner} src={'/imgs/banner/banner1.jpeg'} alt="" />
           <DemoList list={list} />
         </PullScroller>
       ) : (

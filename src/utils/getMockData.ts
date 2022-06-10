@@ -1,14 +1,8 @@
+import { timeout } from "./utils";
+
 export interface ListItem {
   id: number;
   data: string;
-}
-
-export function timeout(delay = 300) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(delay);
-    }, delay);
-  });
 }
 
 const addListItems = (start = 0, count = 15) => {

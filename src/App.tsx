@@ -8,6 +8,9 @@ const BackTopShowAlways = lazy(() => import('./page/BackTopShowAlways/BackTopSho
 const PullLoadDemo = lazy(() => import('./page/PullLoadDemo/PullLoadDemo'));
 const SyncLoadHandler = lazy(() => import('./page/SyncLoadHandler/SyncLoadHandler'));
 const ScrollHandler = lazy(() => import('./page/ScrollHandler/ScrollHandler'));
+const ObserveImg = lazy(() => import('./page/ObserveImg/ObserveImg'));
+const SetImgSize = lazy(() => import('./page/SetImgSize/SetImgSize'));
+const FixedTab = lazy(() => import('./page/FixedTab/FixedTab'));
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
           <Route path="/demo_loading" element={<PullLoadDemo />} />
           <Route path="/sync_load_handler" element={<SyncLoadHandler />} />
           <Route path="/scroll_handler" element={<ScrollHandler />} />
+          <Route path="/obesrve_img" element={<ObserveImg />} />
+          <Route path="/set_img_size" element={<SetImgSize />} />
+          <Route path="/fixed_tabbar" element={<FixedTab />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

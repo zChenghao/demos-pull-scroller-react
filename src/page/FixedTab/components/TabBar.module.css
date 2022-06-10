@@ -1,0 +1,21 @@
+.tabbar {
+  display: flex;
+  justify-content: space-between;
+  /* padding: 0 .32rem; */
+}
+
+.tab__item {
+  flex: 1;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: .4rem;
+  color: #fff;
+  text-align: center;
+  background-color: skyblue;
+  opacity: .5;
+  transition: all .2s;
+}
+
+.active {
+  opacity: 1;
+}

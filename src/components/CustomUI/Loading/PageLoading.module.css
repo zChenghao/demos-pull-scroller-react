@@ -1,0 +1,20 @@
+.loading__wapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.loading__img {
+  position: absolute;
+  left: 50%;
+  top: 43%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 6rem;
+  height: 4.51rem;
+}
+
+.img {
+  width: 100%;
+}

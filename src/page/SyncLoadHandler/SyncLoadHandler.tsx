@@ -3,7 +3,7 @@ import PullScroller, { BackTopMaker, PullDownMaker, SyncPullingHandler, PullUpMa
 import { DemoList } from '../../components';
 import { ListItem, mockGetListData } from '../../utils/getMockData';
 import { useWindowHeight } from '../../utils/customHooks';
-import { BackTop, PullDownLoader, PullUpLoader } from '../../components/CustomUI';
+import { BackTop, PageLoading, PullDownLoader, PullUpLoader } from '../../components/CustomUI';
 
 export default function SyncLoadHandler() {
   const pageIndex = useRef(0);
@@ -23,10 +23,6 @@ export default function SyncLoadHandler() {
       .catch((err) => {
         console.error(err);
       });
-
-    return () => {
-      setList([]);
-    };
   }, []);
 
   useEffect(() => {
@@ -103,23 +99,29 @@ export default function SyncLoadHandler() {
   );
 
   const makeBackTop: BackTopMaker = useCallback(
-    ({ handleScrollToTop, show }) => <BackTop scrollToTop={handleScrollToTop} show={show} />,
+    ({ handleScrollToTop, show }) => <BackTop key="back_top" scrollToTop={handleScrollToTop} show={show} />,
     []
   );
 
   return (
-    <PullScroller
-      height={windowHeight}
-      backTop={makeBackTop}
-      enablePullDown
-      pullDownConfig={pullDownConfig}
-      pullDownHandler={refreshHandler}
-      pullDownLoader={refresher}
-      enablePullUp={enablePullUp}
-      pullUpHandler={loadMoreHandler}
-      pullUpLoader={pullLoader}
-    >
-      <DemoList list={list} />
-    </PullScroller>
+    <>
+      {list.length ? (
+        <PullScroller
+          height={windowHeight}
+          backTop={makeBackTop}
+          enablePullDown
+          pullDownConfig={pullDownConfig}
+          pullDownHandler={refreshHandler}
+          pullDownLoader={refresher}
+          enablePullUp={enablePullUp}
+          pullUpHandler={loadMoreHandler}
+          pullUpLoader={pullLoader}
+        >
+          <DemoList list={list} />
+        </PullScroller>
+      ) : (
+        <PageLoading />
+      )}
+    </>
   );
 }

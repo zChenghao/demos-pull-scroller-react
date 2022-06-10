@@ -4,7 +4,7 @@ import HomeStyle from './Home.module.css';
 export default function Home() {
   return (
     <div className={HomeStyle.home__wrapper}>
-      <h1 className={HomeStyle['home-title']}>Demo case page</h1>
+      <h1 className={HomeStyle['home-title']}>Demos</h1>
       <ul className={HomeStyle['home-link-list']}>
         <li className={HomeStyle['home-link']}>
           <Link to={'/simple'}>Simple to use,only scroll.</Link>
@@ -27,6 +27,15 @@ export default function Home() {
           <Link to={'/sync_load_handler'}>
             The handlers of pull-down and pull-up are synchronous functions(sync function).
           </Link>
+        </li>
+        <li className={HomeStyle['home-link']}>
+          <Link to={'/obesrve_img'}>Use the observe-image plugin.</Link>
+        </li>
+        <li className={HomeStyle['home-link']}>
+          <Link to={'/set_img_size'}>Use CSS styles to set the size of an image or image container.</Link>
+        </li>
+        <li className={HomeStyle['home-link']}>
+          <Link to={'/fixed_tabbar'}>The page has elements with fixed positioning.</Link>
         </li>
       </ul>
     </div>
