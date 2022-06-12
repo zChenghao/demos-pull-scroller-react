@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import PullScroller from 'pull-scroller-react';
+import { PageLoading } from '../../components/CustomUI';
 import { DemoList } from '../../components';
 import { ListItem, mockGetListData } from '../../utils/getMockData';
 import { useWindowHeight } from '../../utils/customHooks';
-import { PageLoading } from '../../components/CustomUI';
 
 const DemoSimple = () => {
+  const { windowHeight } = useWindowHeight(true);
   const [list, setList] = useState<ListItem[]>([]);
-  const { windowHeight } = useWindowHeight();
 
   useEffect(() => {
     mockGetListData(0, 50, 300)

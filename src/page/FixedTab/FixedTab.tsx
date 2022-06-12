@@ -10,14 +10,16 @@ import style from './FixedTab.module.css';
 export default function FixedTab() {
   const { windowHeight } = useWindowHeight();
   const bannerRef = useRef<HTMLDivElement | null>(null);
-  const [list, setList] = useState<ListItem[]>([]);
+  const [tabContents, setTabContents] = useState<ListItem[][]>([]);
   const [isFixed, setisFixed] = useState(false);
+  const [isInit, setIsInit] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     mockGetListData(0, 50, 300)
       .then((res) => {
-        setList(res);
+        setIsInit(false);
+        setTabContents([res, [], [], []]);
       })
       .catch((err) => {
         console.error(err);
@@ -25,7 +27,7 @@ export default function FixedTab() {
   }, []);
 
   const scrollHandler = useCallback(
-    (y) => {
+    (y: number) => {
       if (bannerRef.current && y >= bannerRef.current.offsetHeight) {
         !isFixed && setisFixed(true);
       } else {
@@ -35,6 +37,23 @@ export default function FixedTab() {
     [isFixed]
   );
 
+  const handleTabClick = useCallback(
+    async (index: number) => {
+      setActiveIndex(index);
+      if (tabContents[index].length) return;
+      const result = await mockGetListData(0, 50, 500);
+      setTabContents((prev) => {
+        return prev.map((item, i) => {
+          if (i === index) {
+            return result;
+          }
+          return item;
+        });
+      });
+    },
+    [tabContents]
+  );
+
   const makeBackTop = useCallback(
     ({ handleScrollToTop, show }) => <BackTop key="back_top" scrollToTop={handleScrollToTop} show={show} />,
     []
@@ -42,19 +61,26 @@ export default function FixedTab() {
 
   return (
     <>
-      {list.length ? (
+      {!isInit ? (
         <>
           <div
             className={isFixed ? `${style.fixed} ${style['fixed--show']}` : `${style.fixed} ${style['fixed--hide']}`}
           >
-            <TabBar activeIndex={activeIndex} setActive={setActiveIndex} />
+            <TabBar activeIndex={activeIndex} tabItemClick={handleTabClick} />
           </div>
           <PullScroller height={windowHeight} handleScroll={scrollHandler} backTop={makeBackTop}>
             <div ref={bannerRef} className={style.banner__wrapper}>
-              <img className={style.banner__img} src="/imgs/banner/banner2.jpeg" alt="" />
+              <img className={style.banner__img} src="/imgs/banner/banner4.jpeg" alt="" />
             </div>
-            <TabBar activeIndex={activeIndex} setActive={setActiveIndex} />
-            <DemoList list={list} />
+            <TabBar activeIndex={activeIndex} tabItemClick={handleTabClick} />
+            <div className={style.list}>
+              {tabContents.map((item, index) => (
+                <div key={index} style={{ display: index === activeIndex ? undefined : 'none', overflow: 'hidden' }}>
+                  <h2 className={style.list_title}>This is list -- {index + 1}</h2>
+                  <DemoList list={item} />
+                </div>
+              ))}
+            </div>
           </PullScroller>
         </>
       ) : (

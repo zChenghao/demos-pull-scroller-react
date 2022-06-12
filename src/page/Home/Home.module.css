@@ -9,13 +9,14 @@
   font-weight: bold;
 }
 
-.home-link-list{
+.home-link-list {
   list-style-type: disc;
   list-style-position: inside;
 }
 
 .home-link {
-  margin-bottom: .24rem;
-  line-height: 1.4;
+  padding: .24rem 0;
+  line-height: 1.334;
   font-size: 0.32rem;
+  border-bottom: 1px dashed #ccc;
 }

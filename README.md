@@ -4,7 +4,7 @@
 
 ## The introduction of the demo
 
-+ DemoSimple: Simple to use,only scroll.
++ SimpleDemo: Simple to use,only scroll.
 
 + ScrollHandler: Defining scroll event.
 
@@ -15,6 +15,14 @@
 + PullLoadDemo: Using pull-dwon and pull-up.
 
 + SyncLoadHandler: pullDownHandler and pullUpHandler are synchronous functions.
+
++ ObserveImg: Use the observe-image plugin..
+
++ SetImgSize: Set the image size without using the observe-image plugin.
+
++ FixedTab: The page has elements with fixed positioning.
+
++ ClassDemo: Example of use in a class component.
 
 ### `npm install`
 

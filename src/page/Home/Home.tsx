@@ -37,6 +37,9 @@ export default function Home() {
         <li className={HomeStyle['home-link']}>
           <Link to={'/fixed_tabbar'}>The page has elements with fixed positioning.</Link>
         </li>
+        <li className={HomeStyle['home-link']}>
+          <Link to={'/class'}>Using in class.</Link>
+        </li>
       </ul>
     </div>
   );
