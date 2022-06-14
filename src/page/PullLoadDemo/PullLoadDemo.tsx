@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback, useRef, useMemo, Fragment } from 'react';
-import PullScroller, { AsyncPullingHandler, BackTopMaker, PullDownMaker, PullUpMaker } from 'pull-scroller-react';
+import PullScroller, { AsyncPullingHandler } from 'pull-scroller-react';
 import { DemoList } from '../../components';
 import { ListItem, mockGetListData } from '../../utils/getMockData';
 import { useWindowHeight } from '../../utils/customHooks';
-import { BackTop, PageLoading, PullDownLoader, PullUpLoader } from '../../components/CustomUI';
+import { PageLoading } from '../../components/CustomUI';
+import { useMakeBackTop, useMakeLoaders } from '../../components/MakerHooks';
 
 export default function PullLoadDemo() {
   const pageIndex = useRef(0);
@@ -13,6 +14,9 @@ export default function PullLoadDemo() {
   const [noMoreData, setNoMoreData] = useState(false);
   const { windowHeight } = useWindowHeight();
   const pullDownConfig = useMemo(() => ({ threshold: 100, stop: 60 }), []);
+
+  const { makePullDownLoader, makePullUpLoader } = useMakeLoaders(noMoreData);
+  const { makeBackTop } = useMakeBackTop();
 
   useEffect(() => {
     mockGetListData(0, 30, 300)
@@ -68,29 +72,6 @@ export default function PullLoadDemo() {
     }
   }, [noMoreData]);
 
-  const refresher: PullDownMaker = useCallback(({ beforePullDown, isPullingDown, isPullDownError }) => {
-    return (
-      <PullDownLoader beforePullDown={beforePullDown} isPullingDown={isPullingDown} isRefreshError={isPullDownError} />
-    );
-  }, []);
-
-  const pullLoader: PullUpMaker = useCallback(
-    ({ beforePullUp, isPullingUp, isPullUpError }) => (
-      <PullUpLoader
-        beforePullUp={beforePullUp}
-        isPullUpLoading={isPullingUp}
-        isPullLoadError={isPullUpError}
-        isNoMoreData={noMoreData}
-      />
-    ),
-    [noMoreData]
-  );
-
-  const makeBackTop: BackTopMaker = useCallback(
-    ({ handleScrollToTop, show }) => <BackTop key="back_top" scrollToTop={handleScrollToTop} show={show} />,
-    []
-  );
-
   return (
     <Fragment>
       {list.length ? (
@@ -100,10 +81,10 @@ export default function PullLoadDemo() {
           enablePullDown
           pullDownConfig={pullDownConfig}
           pullDownHandler={refreshHandler}
-          pullDownLoader={refresher}
+          pullDownLoader={makePullDownLoader}
           enablePullUp={enablePullUp}
           pullUpHandler={loadMoreHandler}
-          pullUpLoader={pullLoader}
+          pullUpLoader={makePullUpLoader}
         >
           <DemoList list={list} />
         </PullScroller>

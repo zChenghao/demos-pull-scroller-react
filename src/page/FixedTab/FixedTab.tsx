@@ -1,14 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import PullScroller from 'pull-scroller-react';
 import { DemoList } from '../../components';
-import { BackTop, PageLoading } from '../../components/CustomUI';
+import { PageLoading } from '../../components/CustomUI';
 import TabBar from './components/TabBar';
 import { useWindowHeight } from '../../utils/customHooks';
 import { ListItem, mockGetListData } from '../../utils/getMockData';
 import style from './FixedTab.module.css';
+import { useMakeBackTop } from '../../components/MakerHooks';
 
 export default function FixedTab() {
   const { windowHeight } = useWindowHeight();
+  const { makeBackTop } = useMakeBackTop();
+
   const bannerRef = useRef<HTMLDivElement | null>(null);
   const [tabContents, setTabContents] = useState<ListItem[][]>([]);
   const [isFixed, setisFixed] = useState(false);
@@ -52,11 +55,6 @@ export default function FixedTab() {
       });
     },
     [tabContents]
-  );
-
-  const makeBackTop = useCallback(
-    ({ handleScrollToTop, show }) => <BackTop key="back_top" scrollToTop={handleScrollToTop} show={show} />,
-    []
   );
 
   return (
