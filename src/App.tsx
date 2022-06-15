@@ -13,6 +13,7 @@ const SetImgSize = lazy(() => import('./page/SetImgSize/SetImgSize'));
 const FixedTab = lazy(() => import('./page/FixedTab/FixedTab'));
 const ClassDemo = lazy(() => import('./page/ClassDemo/ClassDemo'));
 const CustomLoadState = lazy(() => import('./page/CustomLoadState/CustomLoadState'));
+const UseExposedMethods = lazy(() => import('./page/UseExposedMethods/UseExposedMethods'));
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/fixed_tabbar" element={<FixedTab />} />
           <Route path="/class" element={<ClassDemo />} />
           <Route path="/custom_load_state" element={<CustomLoadState />} />
+          <Route path="/use_exposed_methods" element={<UseExposedMethods />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

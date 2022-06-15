@@ -26,6 +26,8 @@
 
 + [CustomLoadState: Custom state to control loading components.](https://github.com/zChenghao/demos-pull-scroller-react/blob/main/src/page/CustomLoadState/CustomLoadState.tsx)
 
++ [UseExposedMethods: Use exposed instance methods.(Add in v1.5.x)](https://github.com/zChenghao/demos-pull-scroller-react/blob/main/src/page/UseExposedMethods/UseExposedMethods.tsx)
+
 ### `npm install`
 
 ### `npm start`

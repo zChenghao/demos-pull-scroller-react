@@ -43,6 +43,9 @@ export default function Home() {
         <li className={HomeStyle['home-link']}>
           <Link to={'/custom_load_state'}>Custom state to control loading components.</Link>
         </li>
+        <li className={HomeStyle['home-link']}>
+          <Link to={'/use_exposed_methods'}>Use exposed instance methods.</Link>
+        </li>
       </ul>
     </div>
   );
