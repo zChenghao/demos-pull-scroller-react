@@ -24,6 +24,8 @@
 
 + [ClassDemo: Example of use in a class component.](https://github.com/zChenghao/demos-pull-scroller-react/blob/main/src/page/ClassDemo/ClassDemo.tsx)
 
++ [CustomLoadState: Custom state to control loading components.](https://github.com/zChenghao/demos-pull-scroller-react/blob/main/src/page/CustomLoadState/CustomLoadState.tsx)
+
 ### `npm install`
 
 ### `npm start`

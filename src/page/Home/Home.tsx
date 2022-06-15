@@ -40,6 +40,9 @@ export default function Home() {
         <li className={HomeStyle['home-link']}>
           <Link to={'/class'}>Using in class.</Link>
         </li>
+        <li className={HomeStyle['home-link']}>
+          <Link to={'/custom_load_state'}>Custom state to control loading components.</Link>
+        </li>
       </ul>
     </div>
   );

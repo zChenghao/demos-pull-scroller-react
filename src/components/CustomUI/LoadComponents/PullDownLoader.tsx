@@ -3,12 +3,12 @@ import LoadingIcon from '../../../assets/icons/loading1.gif';
 import style from '../style/PullDownLoader.module.css';
 
 interface Props {
-  beforePullDown?: boolean;
-  isPullingDown?: boolean;
+  beforePullDown: boolean;
+  isPullingDown: boolean;
   isRefreshError?: boolean;
 }
 
-export const PullDownLoader: React.NamedExoticComponent<Props> = memo(function CustomRefresher({
+export const PullDownLoader: React.NamedExoticComponent<Props> = memo(function Refresher({
   beforePullDown,
   isPullingDown,
   isRefreshError

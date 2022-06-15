@@ -9,29 +9,32 @@ interface Props {
   isPullLoadError?: boolean;
 }
 
-export const PullUpLoader: React.NamedExoticComponent<Props> = memo(
-  ({ beforePullUp, isPullUpLoading, isPullLoadError, isNoMoreData }) => {
-    // console.log('loader render');
+export const PullUpLoader: React.NamedExoticComponent<Props> = memo(function PullUpLoader({
+  beforePullUp,
+  isPullUpLoading,
+  isPullLoadError,
+  isNoMoreData
+}) {
+  // console.log('loader render');
 
-    return (
-      <div className="custom__pullloader">
-        <div style={{ display: !isNoMoreData && beforePullUp ? undefined : 'none' }}>
-          <span>Load more</span>
+  return (
+    <div className="custom__pullloader">
+      <div style={{ display: !isNoMoreData && beforePullUp ? undefined : 'none' }}>
+        <span>Load more</span>
+      </div>
+      <div style={{ display: !isNoMoreData && !beforePullUp ? undefined : 'none' }}>
+        <div style={{ display: isPullUpLoading ? undefined : 'none' }}>
+          <img className="icon__loading" src={LoadingIcon} alt="" />
         </div>
-        <div style={{ display: !isNoMoreData && !beforePullUp ? undefined : 'none' }}>
-          <div style={{ display: isPullUpLoading ? undefined : 'none' }}>
-            <img className="icon__loading" src={LoadingIcon} alt="" />
-          </div>
-          <div style={{ display: !isPullUpLoading ? undefined : 'none' }}>
-            <span className="loading__text">
-              {isPullLoadError && isPullLoadError !== undefined ? 'Load error' : 'Load completed'}
-            </span>
-          </div>
-        </div>
-        <div className="loading__text" style={{ display: isNoMoreData ? undefined : 'none' }}>
-          No more
+        <div style={{ display: !isPullUpLoading ? undefined : 'none' }}>
+          <span className="loading__text">
+            {isPullLoadError && isPullLoadError !== undefined ? 'Loading error' : 'Loading complete'}
+          </span>
         </div>
       </div>
-    );
-  }
-);
+      <div className="loading__text" style={{ display: isNoMoreData ? undefined : 'none' }}>
+        No more
+      </div>
+    </div>
+  );
+});
