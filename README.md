@@ -1,4 +1,4 @@
-# Demons
+# Demos
 
 [Documentation](https://github.com/zChenghao/pull-scroller-react#readme)
 
