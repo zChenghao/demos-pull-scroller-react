@@ -19,10 +19,9 @@ export default function BackTopDemo() {
       });
   }, []);
 
-  const BackTopMaker = useCallback(
-    ({ handleScrollToTop, show }) => <BackTop key="back_top" scrollToTop={handleScrollToTop} show={show} />,
-    []
-  );
+  const BackTopMaker = useCallback(({ handleScrollToTop, show }) => {
+    return <BackTop key="back_top" scrollToTop={handleScrollToTop} show={show} />;
+  }, []);
 
   return (
     <>

@@ -4,9 +4,9 @@ import { DemoList } from '../../components';
 import { PageLoading } from '../../components/CustomUI';
 import TabBar from './components/TabBar';
 import { useWindowHeight } from '../../utils/customHooks';
+import { useMakeBackTop } from '../../components/MakerHooks';
 import { ListItem, mockGetListData } from '../../utils/getMockData';
 import style from './FixedTab.module.css';
-import { useMakeBackTop } from '../../components/MakerHooks';
 
 export default function FixedTab() {
   const { windowHeight } = useWindowHeight();

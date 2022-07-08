@@ -7,7 +7,7 @@ interface Props {
   tabItemClick(index: number): Promise<void> | void;
 }
 
-const TabBar = memo(({ activeIndex, tabItemClick }: Props) => {
+const TabBar: React.FC<Props> = memo(({ activeIndex, tabItemClick }) => {
   const [tabList] = useState([
     { id: 'tab1', name: 'Tab1' },
     { id: 'tab2', name: 'Tab2' },

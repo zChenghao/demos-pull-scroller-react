@@ -12,8 +12,9 @@ export default function PullLoadDemo() {
   const [list, setList] = useState<ListItem[]>([]);
   const [enablePullUp, setEnablePullUp] = useState(false);
   const [noMoreData, setNoMoreData] = useState(false);
-  const { windowHeight } = useWindowHeight();
   const pullDownConfig = useMemo(() => ({ threshold: 100, stop: 60 }), []);
+
+  const { windowHeight } = useWindowHeight();
 
   const { makePullDownLoader, makePullUpLoader } = useMakeLoaders(noMoreData);
   const { makeBackTop } = useMakeBackTop();
@@ -68,7 +69,7 @@ export default function PullLoadDemo() {
       // handle error
 
       // throw error;
-      return { error: true }; // set PullScroller's isPullUpError: true
+      return { error: true }; // Set PullScroller's isPullUpError: true
     }
   }, [noMoreData]);
 

@@ -11,15 +11,11 @@ export function useWindowHeight(resize = false) {
 
   useEffect(() => {
     setHeight();
-    if (resize) {
-      window.addEventListener('resize', setHeight);
-    }
+    if (resize) window.addEventListener('resize', setHeight);
 
     return () => {
       setWindowHeight('100%');
-      if (resize) {
-        window.removeEventListener('resize', setHeight);
-      }
+      if (resize) window.removeEventListener('resize', setHeight);
     };
   }, [resize, setHeight]);
 
