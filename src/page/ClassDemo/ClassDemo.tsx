@@ -15,7 +15,6 @@ interface State {
 }
 
 class ClassDemo extends Component<{}, Readonly<State>> {
-  // state: Readonly<State>;
   constructor(props) {
     super(props);
     // init state
