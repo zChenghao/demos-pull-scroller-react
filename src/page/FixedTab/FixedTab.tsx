@@ -30,8 +30,8 @@ export default function FixedTab() {
   }, []);
 
   const scrollHandler = useCallback(
-    (y: number) => {
-      if (bannerRef.current && y >= bannerRef.current.offsetHeight) {
+    (y?: number) => {
+      if (bannerRef.current && y !== undefined && y >= bannerRef.current.offsetHeight) {
         !isFixed && setisFixed(true);
       } else {
         isFixed && setisFixed(false);

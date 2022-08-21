@@ -37,18 +37,18 @@ export default function SyncLoadHandler() {
     mockGetListData(0, 30)
       .then((res) => {
         // do something with res
-        console.log('refresh success', res);
+        // console.log('refresh success', res);
         setNoMoreData(false);
         setList(res);
         // finish pull-down
-        // if (done) done({ delay: 400 }); // Set the pull-down end action delay, default 300ms
-        complete && complete();
+        // if (complete) complete({ delay: 400 }); // Set the pull-down end action delay, default 300ms
+        complete();
       })
       .catch((e) => {
         // handle error
 
         // finish pull-down
-        complete && complete({ error: true }); // set PullScroller's isPullDownError: true
+        complete({ error: true }); // set PullScroller's isPullDownError: true
         throw e;
       });
   }, []);

@@ -13,7 +13,6 @@ export default function PullLoadDemo() {
   const [enablePullUp, setEnablePullUp] = useState(false);
   const [noMoreData, setNoMoreData] = useState(false);
   const pullDownConfig = useMemo(() => ({ threshold: 100, stop: 60 }), []);
-
   const { windowHeight } = useWindowHeight();
 
   const { makePullDownLoader, makePullUpLoader } = useMakeLoaders(noMoreData);
